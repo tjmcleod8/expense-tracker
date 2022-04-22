@@ -41,7 +41,7 @@ public class ActivityService {
     }
 
     public List<Activity> findByDate(LocalDate startDate, LocalDate endDate){
-        return activityDao.findAllByCreateTimeBetween(startDate, endDate);
+        return activityDao.findByCreateTimeBetween(startDate, endDate);
     }
 
 }

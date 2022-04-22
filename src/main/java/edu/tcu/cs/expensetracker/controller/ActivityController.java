@@ -30,14 +30,13 @@ public class ActivityController {
 
     @GetMapping("/{id}")
     public Result findById(@PathVariable Integer id){
-        return new Result(true, StatusCode.SUCCESS, "Find All Success", service.findById(id));
+        return new Result(true, StatusCode.SUCCESS, "Find By ID Success", service.findById(id));
     }
 
     @GetMapping("/betweenDates")
     public Result findByDate(@RequestParam String startDate, @RequestParam String endDate){
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
-        service.findByDate(LocalDate.parse(startDate, formatter), LocalDate.parse(endDate, formatter));
-        return new Result(true, StatusCode.SUCCESS, "Find by Date Success");
+        return new Result(true, StatusCode.SUCCESS, "Find by Date Success", service.findByDate(LocalDate.parse(startDate, formatter), LocalDate.parse(endDate, formatter)));
     }
 
     @PostMapping
